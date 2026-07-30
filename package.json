@@ -1,0 +1,22 @@
+{
+  "name": "@wwsrapport/cli",
+  "version": "0.1.0",
+  "description": "Official CLI for the WWSrapport API.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "wwsrapport": "./bin/wwsrapport.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --check bin/wwsrapport.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wwsrapport/cli.git"
+  },
+  "homepage": "https://wwsrapport.nl/api/docs"
+}
+

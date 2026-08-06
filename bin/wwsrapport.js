@@ -63,6 +63,15 @@ async function main() {
     case 'documents':
       await printJson(await request('GET', `/reports/${encodeURIComponent(required(args._[0], 'report_id'))}/documents`));
       break;
+    case 'verification':
+      await printJson(await request('GET', `/reports/${encodeURIComponent(required(args._[0], 'report_id'))}/verification`));
+      break;
+    case 'registry:bag-reference':
+      await printJson(await request('POST', '/registry/bag-reference', { bagVboId: required(args._[0], 'bag_vbo_id') }));
+      break;
+    case 'registry:search-by-bag':
+      await printJson(await request('POST', '/registry/search-by-bag', { bagVboId: required(args._[0], 'bag_vbo_id') }));
+      break;
     case 'download':
       await downloadDocument(required(args._[0], 'report_id'), args.type || 'wws-report', required(args.output, '--output'));
       break;
@@ -174,6 +183,9 @@ Usage:
   wwsrapport calculation rpt_...
   wwsrapport improvement-advice rpt_...
   wwsrapport documents rpt_...
+  wwsrapport verification WWS-2026-000038
+  wwsrapport registry:bag-reference 0123456789012345
+  wwsrapport registry:search-by-bag 0123456789012345
   wwsrapport download rpt_... --type wws-report --output WWSrapport.pdf
   wwsrapport usage
   wwsrapport rulesets
